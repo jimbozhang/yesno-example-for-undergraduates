@@ -128,9 +128,16 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Notebook converted
+train/train.py
+
 # Data
 waves_yesno.tar.gz
 waves_yesno/
 
 # Model
 model.pt
+
+# Libtorch
+libtorch-shared-with-deps-latest.zip
+libtorch/
