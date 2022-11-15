@@ -130,6 +130,7 @@ dmypy.json
 
 # Editors
 .vscode/
+.gitpod.yml
 
 # Notebook converted
 train/train.py
