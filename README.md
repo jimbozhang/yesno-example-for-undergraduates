@@ -2,21 +2,42 @@
 
 ## Model Training
 ```bash
-pip install -r requirements.txt
+$ pip install -r requirements.txt
 ```
 
 ```bash
-pip install jupyter
-jupyter-nbconvert --to python train.ipynb
-
-cd train
-python train.py
+$ cd train
+$ jupyter-nbconvert --to python train.ipynb
+$ python train.py
 ```
 
 ## Deployment
 ```bash
-mkdir build
-cd build
+$ cd deploy
+$ ./install_libtorch.sh
+```
 
-cmake -DCMAKE_PREFIX_PATH=`realpath ../libtorch` ..
+```bash
+$ mkdir build
+$ cd build
+
+$ cmake -DCMAKE_PREFIX_PATH=`realpath ../libtorch` ..
+$ make
+```
+
+```bash
+$ ./example-app
+usage: example-app <model-path> <wav-path>
+
+$ ./example-app
+usage: example-app <model-path> <wav-path>
+
+$ ./example-app ../../train/model.pt ../../train/waves_yesno/0_0_0_0_1_1_1_1.wav
+NO NO NO NO YES YES YES YES
+
+$ ./example-app ../../train/model.pt ../../train/waves_yesno/0_0_1_0_1_0_1_1.wav
+NO NO YES NO YES NO YES YES
+
+$ ./example-app ../../train/model.pt ../../train/waves_yesno/1_1_1_1_1_1_1_1.wav
+YES YES YES YES YES YES YES YES
 ```
